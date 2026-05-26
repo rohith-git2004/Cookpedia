@@ -7,7 +7,7 @@ import { recipeModel } from '../admin/model/recipeModel';
 })
 export class ApiService {
 
-   server_url = "https://cookpedia-server-ca69.onrender.com"
+   server_url = "https://cookpedia-ooq9.onrender.com"
    http = inject(HttpClient)
 
   //  api function - get all recipes
