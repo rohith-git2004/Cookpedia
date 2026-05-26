@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+    <div style="height: 200px;" class="row bg-success"></div>
+    <div style="width: 220px;height: 220px;border-radius: 50%;margin-top: -110px;" class="p-1 shadow d-flex justify-content-center align-items-center">
+        <label for="upload">
+            <img width="100%" [src]="userImage()" alt="">
+        </label>
+        <input (change)="updateProfilePic($event)" type="file" id="upload" accept="image/*" hidden>
+    </div>
+    <label style="margin-top: -40px;margin-left: 90px;" class="btn bg-light" for="upload"><i class="fa-solid fa-upload fa-x text-success"></i></label>
+     
+            <h1>{{username}} <i class="fa-solid fa-circle-check fs-3 text-primary "></i></h1>
+            <p style="text-align: justify;" class="my-3">I’m a passionate home cook who enjoys experimenting with flavors and creating simple, delicious meals using everyday ingredients. Cooking for me is not just about following recipes, but about understanding tastes, trying new ideas, and making food that brings people together.I love exploring different cuisines, especially Indian and continental dishes, and I’m always interested in learning healthier cooking methods and quicker meal solutions. Whether it’s a traditional recipe or a modern twist, I enjoy sharing my food journey and discovering new recipes from the community.</p>
+            <p>Favourite cuisines: Italian, continental</p>
+            <p>Cooking: Beginner -> Intermediate</p>
+            <p>Cooking Style: Quick & Easy Meals</p>
+    <div class="my-5">
+        <h1>Download Recipe History</h1>
+        <div class="row">
+            @if (downloadList().length>0) {
+                 @for (recipe of downloadList(); track $index) {
+          <div class="col-lg-2">
+          <div routerLink="/recipes/{{recipe.recipeId}}/view" class="p-3">
+                    <img class="card-img-top" [src]="recipe.image" alt="">
+                    <div class="card-body">
+                        <p class="card-title fw-bold"> {{recipe.name}}</p>
+                    </div>
+            </div>
+        </div>
+        }
+            }@else {
+                <p class="fw-bold text-primary">Recipes not Downloaded yet!!!</p>
+            }
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

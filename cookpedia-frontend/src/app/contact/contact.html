@@ -1,0 +1,120 @@
+<app-header></app-header>
+<div class="container">
+  <div style="height: 300px;" class="row bg-success mb-5 text-center text-light">
+    <h2 class="mt-5">CONTACT</h2>
+    <p class="mb-5">Have a question or need help? Get in touch with us anytime. <br>
+We’re always happy to hear from you and assist you.</p>
+  </div>
+  <div class="row g-4">
+
+    <!-- LEFT SECTION -->
+     <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+      <h4 class="fw-bold">Get In Touch</h4>
+      <p class="text-muted">
+        Feel free to reach out with your questions, feedback, or suggestions.
+        We’re always here to help.
+      </p>
+
+      <!-- Address -->
+      <div class="d-flex align-items-start mb-3">
+        <div
+          class="me-3 d-flex align-items-center justify-content-center"
+          style="width:38px;height:38px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div>
+          <strong>123 Food Street, Recipe Nagar</strong><br />
+          Chennai, Tamil Nadu, India
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="d-flex align-items-start mb-3">
+        <div
+          class="me-3 d-flex align-items-center justify-content-center"
+          style="width:38px;height:38px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div>
+          <strong>Phone Number</strong><br />
+          +91 98765 43210
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="d-flex align-items-start mb-4">
+        <div
+          class="me-3 d-flex align-items-center justify-content-center"
+          style="width:38px;height:38px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div>
+          <strong>E-Mail</strong><br />
+          support@cookpedia.com
+        </div>
+      </div>
+
+      <hr>
+      <strong>Follow Us</strong>
+      <div class="mt-2">
+        <a href="" class="me-2 d-inline-flex align-items-center justify-content-center text-decoration-none"
+           style="width:36px;height:36px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="me-2 d-inline-flex align-items-center justify-content-center text-decoration-none"
+           style="width:36px;height:36px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" class="me-2 d-inline-flex align-items-center justify-content-center text-decoration-none"
+           style="width:36px;height:36px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="#" class="d-inline-flex align-items-center justify-content-center text-decoration-none"
+           style="width:36px;height:36px;border-radius:50%;background:#198754;color:#fff;">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="col-lg-4">
+      <div class="p-4 bg-white rounded"
+           style="box-shadow:0 0 15px rgba(0,0,0,0.08);">
+
+        <h5 class="fw-bold mb-3">Client Testimony</h5>
+
+        <form #feedbackForm="ngForm" (ngSubmit)="addFeedback()">
+          <input #username="ngModel" name="username" [(ngModel)]="name" type="text" class="form-control mb-3" placeholder="Name" required pattern="[a-zA-Z]*" />
+          @if (username.invalid && username.touched) {
+            <div class="mb-3 text-danger">Invalid Name</div>
+          }
+          <input #mail="ngModel" name="email" [(ngModel)]="email" type="email" class="form-control mb-3" placeholder="E-Mail" email required />
+          @if (mail.invalid && mail.touched) {
+            <div class="mb-3 text-danger">Invalid Email</div>
+          }
+          <textarea #umessage="ngModel" name="message" [(ngModel)]="message" class="form-control mb-3" rows="4" placeholder="Message" required></textarea>
+          @if (umessage.invalid && umessage.touched) {
+            <div class="mb-3 text-danger">Invalid Message</div>
+          }
+          <small class="text-muted d-block mb-3">
+            By submitting, you agree to the terms and conditions of our website.
+            We may use your details on our site.
+          </small>
+  
+          <button [disabled]="feedbackForm.invalid" type="submit" class="btn btn-success w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+         <div class="col-lg-2"></div>
+
+  </div>
+  <div class="row mt-5">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13204056.324315974!2d-133.10473809999996!3d36.10210279999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8eabd76530305%3A0x13ccbe3da61821b9!2sAmerica!5e0!3m2!1sen!2sin!4v1769489870959!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<app-footer></app-footer>

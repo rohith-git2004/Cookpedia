@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <app-admin-sidebar></app-admin-sidebar>
+        </div>
+        <div class="col">
+            <h1 class="mb-5">Users List</h1>
+            <table class="table table-stripped table-cover">
+                <thead>
+                    <tr class="table-success">
+                        <th>SI NO</th>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (user of allUsers(); track $index;let i=$index) {
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{user._id}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}/td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        @if (isSidebarOpen) {
+            <div class="col-lg-2">
+            <app-admin-sidebar></app-admin-sidebar>
+        </div>
+        }
+        <div class="col">
+            <!-- header -->
+             <div class="row">
+                <div class="p-3 bg-success w-100 d-flex align-items-center justify-content-between">
+                    <div class="fs-3 text-light">
+                        <button (click)="toogleSidebar()" class="btn text-light"><i class="fa-solid fa-bars fa-2x"></i></button>
+                        Admin
+                    </div>
+                    <!-- logout dropdown -->
+                     <div class="dropdown">
+                        <button class="btn text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user text-light"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button (click)="logout()" class="dropdown-item" href="#">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+             <div class="row my-5">
+                <!-- box -->
+                <div class="col-lg-3">
+                    <div style="background-color: rgba(255, 215, 0,1);" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                        <i class="fa-solid fa-users fs-1"></i>
+                        <div class="ms-5">
+                            <h4>USERS</h4>
+                            <h3>{{userCount()}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgb(75, 219, 78);" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                        <i class="fa-solid fa-bowl-rice fs-1"></i>
+                        <div class="ms-5">
+                            <h4>RECIPES</h4>
+                            <h3>{{recipeCount()}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgb(52, 121, 224);" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                        <i class="fa-solid fa-download fs-1"></i>
+                        <div class="ms-5">
+                            <h4>DOWNLOAD</h4>
+                            <h3>{{downloadCount()}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgba(223,55, 232, 0.8);" class="d-flex justify-content-center align-items-center p-2 rounded text-light ">
+                        <i class="fa-solid fa-message fs-1"></i>
+                        <div class="ms-4">
+                            <h4>Notifications</h4>
+                            <h6>Yo have <a class=" text-decoration-none" routerLink="/admin/feedbacks">
+                                {{notifictionCount()}}</a> new <br>feedbacks!!</h6>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-lg-7">
+                    <!-- chart -->
+                     <highcharts-chart
+                    [options]="chartOptions"
+                    class="chart"
+                    />
+                </div>
+                <div class="col-lg-5">
+                    <!-- calendar -->
+                      <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                      </mat-card> 
+                </div>
+             </div>
+        </div>
+    </div>
+</div>

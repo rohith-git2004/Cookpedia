@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <app-admin-sidebar></app-admin-sidebar>
+        </div>
+        <div class="col">
+            <h1>All Recipe List</h1>
+            <div class="d-flex my-5 items-center justify-content-between">
+                <a routerLink="/admin/recipes/add" class="btn btn-primary">ADD RECIPE</a>
+                <input [(ngModel)]="searchKey" type="text" placeholder="Search Recipe here" class="form-control w-25">
+            </div>
+            <table class="table table-stripped table-cover">
+                <thead>
+                    <tr class="table-success">
+                        <th>SI NO</th>
+                        <th>Recipe ID</th>
+                        <th>Recipe Image</th>
+                        <th>Recipe Name</th>
+                        <th>Recipe Cuisine</th>
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (recipe of allRecipes() | search:searchKey; track $index;let i=$index) {
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{recipe._id}}</td>
+                            <td><img width="40px" height="40px" [src]="recipe.image" alt=""></td>
+                            <td>{{recipe.name}}</td>
+                            <td>{{recipe.cuisine}}</td>
+                            <td>
+                                <div class="d-flex">
+                                    <a routerLink="/admin/recipes/{{recipe._id}}" class="btn text-warning border border-warning"><i class="fa-solid fa-edit"></i></a>
+                                    <a (click)="deleteRecipe(recipe._id)" class="btn text-danger border border-danger ms-1"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
